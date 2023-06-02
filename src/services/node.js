@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { VITE_API_URL } from './config.js'
 
 export async function createNode(systemId, nodeData) {
-  let response = await axios.post(`http://localhost:8080/api/systems/${systemId}/nodes`, nodeData.data);
+  let response = await axios.post(`${VITE_API_URL}/api/systems/${systemId}/nodes`, nodeData.data);
 
   if (response.status !== 201) {
     throw new Error(response.statusText);
@@ -11,7 +12,7 @@ export async function createNode(systemId, nodeData) {
 }
 
 export async function updateNodePosition(systemId, nodeId, newPosition) {
-  let response = await axios.patch(`http://localhost:8080/api/systems/${systemId}/nodes/${nodeId}`, newPosition);
+  let response = await axios.patch(`${VITE_API_URL}/api/systems/${systemId}/nodes/${nodeId}`, newPosition);
 
   if (response.status !== 200) {
     throw new Error(response.statusText);
@@ -23,7 +24,7 @@ export async function updateNodePosition(systemId, nodeId, newPosition) {
 export async function deleteNodes(systemId, nodes) {
   let nodeIds = nodes.map((node)=>node.id)
   let idsQuery = nodeIds.map(id => `id=${id}`).join("&");
-  let response = await axios.delete(`http://localhost:8080/api/systems/${systemId}/nodes?${idsQuery}`);
+  let response = await axios.delete(`${VITE_API_URL}/api/systems/${systemId}/nodes?${idsQuery}`);
 
   if (response.status !== 200) {
     throw new Error(response.statusText);

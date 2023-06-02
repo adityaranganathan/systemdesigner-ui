@@ -1,8 +1,11 @@
 import axios from "axios";
+
 import { NodeType } from "../components/Node";
 
+import { VITE_API_URL } from './config.js'
+
 export async function fetchSystem(systemId)  {
-  let response = await axios.get(`http://localhost:8080/api/systems/${systemId}`)
+  let response = await axios.get(`${VITE_API_URL}/api/systems/${systemId}`)
   if (response.status != 200){
     return new Error(response.statusText)
   }
@@ -15,7 +18,7 @@ export async function fetchSystem(systemId)  {
 };
 
 export async function createSystem()  {
-  let response = await axios.post(`http://localhost:8080/api/systems`)
+  let response = await axios.post(`${VITE_API_URL}/api/systems`)
   if (response.status != 201){
     return new Error(response.statusText)
   }
@@ -24,7 +27,7 @@ export async function createSystem()  {
 };
 
 export async function startSystem(systemId) {
-  let response = await axios.put(`http://localhost:8080/api/systems/${systemId}/start`)
+  let response = await axios.put(`${VITE_API_URL}/api/systems/${systemId}/start`)
   if (response.status != 200){
     return new Error(response.statusText)
   }
