@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Icon, Text, Box, CloseButton, Button, Link, HStack } from '@chakra-ui/react';
 import { Panel } from 'reactflow';
 import { BsInfoCircle } from "react-icons/bs";
-import { FaGithub, FaGlobe } from "react-icons/fa";
+import { FaReact, FaServer, FaGlobe } from "react-icons/fa";
 
 const styles = {
     infoPanel: {
@@ -46,8 +46,11 @@ export function InfoButton() {
                                 Visualize load balancing in action!
                             </Text>
                             <HStack justify='center' margin="0px 0px" spacing={"10px"}>
-                                <Link href="https://github.com/adityaranganathan" isExternal>
-                                    <Icon as={FaGithub} {...iconStyles} />
+                                <Link href="https://github.com/adityaranganathan/systemdesigner-ui" isExternal>
+                                    <Icon as={FaReact} {...iconStyles} />
+                                </Link>
+                                <Link href="https://github.com/adityaranganathan/systemdesigner" isExternal>
+                                    <Icon as={FaServer} {...iconStyles} />
                                 </Link>
                                 <Link href="https://aditya-r.com" isExternal>
                                     <Icon as={FaGlobe} {...iconStyles} />

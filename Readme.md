@@ -2,6 +2,9 @@
 
 Welcome to **System Designer's** React frontend - a tool to visualise your server architecture visually.
 
+Website - https://system.aditya-r.com/
+Backend - https://github.com/adityaranganathan/systemdesigner
+
 ## Features
 
 - Create, modify, and visualize server systems
