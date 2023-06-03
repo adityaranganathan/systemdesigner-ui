@@ -15,7 +15,7 @@ import { ComponentMenu } from './ComponentMenu';
 import { StartButton } from './StartButton';
 import { InfoButton } from './InfoButton';
 
-import { VITE_HOST } from '../services/config.js'
+import { VITE_WS_URL } from '../services/config.js'
 import { fetchSystem } from '../services/system.js';
 import { createEdge, deleteEdges } from '../services/edge.js';
 import { createNode, updateNodePosition, deleteNodes } from '../services/node.js';
@@ -67,7 +67,7 @@ export function Playground({ systemID, createNewSystem }) {
         }
       })
 
-    const ws = new WebSocket(`wss://${VITE_HOST}/api/systems/${systemID}/metrics`);
+    const ws = new WebSocket(`${VITE_WS_URL}/api/systems/${systemID}/metrics`);
 
     ws.onopen = () => {
       console.log('websocket connection opened:', systemID);
