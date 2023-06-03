@@ -67,7 +67,7 @@ export function Playground({ systemID, createNewSystem }) {
         }
       })
 
-    const ws = new WebSocket(`ws://${VITE_HOST}/api/systems/${systemID}/metrics`);
+    const ws = new WebSocket(`wss://${VITE_HOST}/api/systems/${systemID}/metrics`);
 
     ws.onopen = () => {
       console.log('websocket connection opened:', systemID);
